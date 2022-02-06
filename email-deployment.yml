@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: break-booking
+  name: break-email
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: break-booking
+      app: break-email
   template:
     metadata:
       labels:
-        app: break-booking
+        app: break-email
     spec:
       containers:
-        - name: break-booking
-          image: pkdocker3383/break-booking:v1
+        - name: break-email
+          image: pkdocker3383/break-email:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -25,12 +25,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: break-booking
+  name: break-email
   labels:
-    app: break-booking
+    app: break-email
 spec:
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: break-booking
+    app: break-email
