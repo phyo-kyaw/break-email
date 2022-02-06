@@ -17,6 +17,7 @@ public class EmailController {
 
     @PostMapping(value = "/sendBookingNotification")
     public ResponseEntity<Void> sendBookingNotificationEmail(String toAddress, String name) {
+        System.out.println("email get called!");
         emailService.sendNotificationEmail(toAddress, name);
         return  new ResponseEntity(HttpStatus.OK);
     }
