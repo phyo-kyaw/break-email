@@ -9,7 +9,7 @@ import org.thebreak.breakemail.service.EmailService;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "api/email")
+@RequestMapping(value = "/api/email")
 public class EmailController {
     // test text
     @Autowired
