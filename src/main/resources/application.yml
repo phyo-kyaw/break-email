@@ -6,7 +6,7 @@ spring:
       bootstrap-servers: kafka:9092
       group-id: email-gp
       auto-offset-reset: earliest
-      key-deserializer: org.springframework.kafka.support.serializer.StringDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring:
