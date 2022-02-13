@@ -14,7 +14,7 @@ public class BookedNotificationEventConsumer implements EventConsumer {
     @Autowired
     private EventHandler eventHandler;
 
-    @KafkaListener(topics = "email", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "email-events", groupId = "${spring.kafka.consumer.group-id}")
     @Override
     public void consume(@Payload BookedNotificationEvent event, Acknowledgment ack) {
 
