@@ -6,6 +6,6 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.thebreak.breakemail.event.BookedNotificationEvent;
 
 public interface EventConsumer {
-    void consume(ConsumerRecord<Integer,String> consumerRecord, Acknowledgment ack);
+    void consume(ConsumerRecord<String,Object> consumerRecord, Acknowledgment ack);
 
 }
