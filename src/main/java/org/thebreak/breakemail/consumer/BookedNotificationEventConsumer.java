@@ -41,7 +41,7 @@ public class BookedNotificationEventConsumer implements EventConsumer {
 
 
         this.eventHandler.on(event);
-        ack.acknowledge();
+        //ack.acknowledge();
     }
 
 
