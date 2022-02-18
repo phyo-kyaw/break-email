@@ -26,22 +26,23 @@ public class BookedNotificationEventConsumer implements EventConsumer {
 
     @KafkaListener(topics = {"appt-email-events"}, groupId = "${spring.kafka.consumer.group-id}")
     @Override
-    public void consume(ConsumerRecord<String,Object> consumerRecord, Acknowledgment ack) {
+    public void consume(ConsumerRecord<String,String> consumerRecord, Acknowledgment ack) {
 
-        log.info("Logger - received key {}", consumerRecord.key());
+        log.info("Received key {}", consumerRecord.key());
 
         BookedNotificationEvent event = null;
 
         try {
-                event = objectMapper.readValue((byte[]) consumerRecord.value(), BookedNotificationEvent.class);
+                event = objectMapper.readValue( consumerRecord.value(), BookedNotificationEvent.class);
 
         } catch ( IOException e) {
+            log.error("Error - mapping error");
             e.printStackTrace();
         }
 
 
         this.eventHandler.on(event);
-        //ack.acknowledge();
+        ack.acknowledge();
     }
 
 
